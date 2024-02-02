@@ -4,6 +4,7 @@ import net.fabricmc.api.ModInitializer;
 import org.example.examplefabricmod.block.ModBlocks;
 import org.example.examplefabricmod.effect.ModEffects;
 import org.example.examplefabricmod.enchantment.ModEnchantments;
+import org.example.examplefabricmod.entity.ModBlockEntities;
 import org.example.examplefabricmod.fluid.ModFluids;
 import org.example.examplefabricmod.item.ModFuels;
 import org.example.examplefabricmod.item.ModItems;
@@ -60,6 +61,8 @@ public class ExampleFabricMod implements ModInitializer {
         ModBiomes.registerModBiomes();
         // 模组维度注册
         ModDimensions.registerModDimensions();
+        // 模组方块实体注册
+        ModBlockEntities.registerBlockEntities();
 
         LOGGER.info("Hello Fabric World!");
     }
