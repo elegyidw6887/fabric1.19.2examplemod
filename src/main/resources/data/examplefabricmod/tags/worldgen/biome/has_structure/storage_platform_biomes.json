@@ -1,0 +1,17 @@
+{
+  "replace": false,
+
+  "_comment": "这个生物群系标签可以直接指定生物群系，要指定其他标签的时候需要添加#",
+  "values": [
+    "#minecraft:is_jungle",
+    "#minecraft:is_forest",
+    "#minecraft:is_taiga",
+    "minecraft:desert",
+    "minecraft:plains",
+    "minecraft:snowy_plains",
+    "minecraft:sunflower_plains",
+    "minecraft:savanna",
+    "minecraft:savanna_plateau",
+    "minecraft:windswept_savanna"
+  ]
+}

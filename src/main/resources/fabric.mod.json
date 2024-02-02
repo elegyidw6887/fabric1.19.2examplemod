@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "untitled",
+  "version": "0.1",
+  "name": "fabricMOD",
+  "description": "",
+  "authors": [
+    "LOST"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/examplefabricmod/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.example.examplefabricmod.client.ExampleFabricModClient"
+    ],
+    "main": [
+      "org.example.examplefabricmod.ExampleFabricMod"
+    ],
+    "terrablender": [
+      "org.example.examplefabricmod.world.biome.ModTerrablenderAPI"
+    ]
+  },
+  "mixins": [
+    "examplefabricmod.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": "0.15.3",
+    "fabric": "*",
+    "minecraft": "1.19.2",
+    "java": ">=17"
+  }
+}

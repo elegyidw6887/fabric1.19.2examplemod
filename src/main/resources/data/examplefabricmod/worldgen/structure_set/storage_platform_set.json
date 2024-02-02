@@ -1,0 +1,18 @@
+{
+  "structures": [
+    {
+      "structure": "examplefabricmod:storage_platform",
+      "weight": 1
+    }
+  ],
+  "placement": {
+
+    "type": "minecraft:random_spread",
+
+    "salt": 5144111919,
+
+    "spacing": 32,
+
+    "separation": 16
+  }
+}

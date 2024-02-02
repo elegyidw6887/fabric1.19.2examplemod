@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "examplefabricmod:amethyst_block",
+    "examplefabricmod:amethyst_ore",
+    "examplefabricmod:deepslate_amethyst_ore",
+    "examplefabricmod:jump_block"
+  ]
+}
