@@ -1,6 +1,6 @@
 {
   "type": "minecraft:smelting",
-  "group": "diamond",
+  "group": "amethyst",
   "ingredient": {
     "item": "examplefabricmod:deepslate_amethyst_ore"
   },

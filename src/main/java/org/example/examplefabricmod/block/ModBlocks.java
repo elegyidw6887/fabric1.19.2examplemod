@@ -74,7 +74,7 @@ public class ModBlocks {
             new FlowerPotBlock(ModBlocks.LILAC_FLOWER, FabricBlockSettings.copy(Blocks.POTTED_DANDELION)));
     // 注入工作台方块
     public static final Block INJECTION_BENCH_BLOCK = registerBlock("injection_bench_block",
-            new InjectionBenchBlock(FabricBlockSettings.of(Material.STONE).requiresTool().nonOpaque()), ModItemGroup.LOSTsMOD);
+            new InjectionBenchBlock(FabricBlockSettings.of(Material.STONE).requiresTool()), ModItemGroup.LOSTsMOD);
 
     // 调用类中方块相关物品对象注册方法，同时做到方块与方块相关物品对象的注册
     private static Block registerBlock(String name, Block block, ItemGroup itemGroup) { // 注册方块的同时注册一个对应的物品

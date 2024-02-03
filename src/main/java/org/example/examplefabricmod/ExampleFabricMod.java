@@ -1,6 +1,7 @@
 package org.example.examplefabricmod;
 
 import net.fabricmc.api.ModInitializer;
+import org.example.examplefabricmod.Recipe.ModRecipes;
 import org.example.examplefabricmod.block.ModBlocks;
 import org.example.examplefabricmod.effect.ModEffects;
 import org.example.examplefabricmod.enchantment.ModEnchantments;
@@ -10,6 +11,7 @@ import org.example.examplefabricmod.item.ModFuels;
 import org.example.examplefabricmod.item.ModItems;
 import org.example.examplefabricmod.item.ModPaintings;
 import org.example.examplefabricmod.item.ModPotions;
+import org.example.examplefabricmod.screen.ModScreenHandlers;
 import org.example.examplefabricmod.util.ModCustomTrades;
 import org.example.examplefabricmod.util.ModFlammableBlocks;
 import org.example.examplefabricmod.util.ModStrippables;
@@ -62,7 +64,11 @@ public class ExampleFabricMod implements ModInitializer {
         // 模组维度注册
         ModDimensions.registerModDimensions();
         // 模组方块实体注册
-        ModBlockEntities.registerBlockEntities();
+        ModBlockEntities.registerModBlockEntities();
+        // 模组屏幕处理器注册
+        ModScreenHandlers.registerModScreenHandlers();
+        // 模组配方注册
+        ModRecipes.registerModRecipes();
 
         LOGGER.info("Hello Fabric World!");
     }

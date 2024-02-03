@@ -1,10 +1,10 @@
 {
-  "type": "minecraft:blasting",
-  "group": "diamond",
+  "type": "minecraft:smelting",
+  "group": "amethyst",
   "ingredient": {
     "item": "examplefabricmod:amethyst_ore"
   },
   "result": "examplefabricmod:amethyst",
   "experience": 1.0,
-  "cookingtime": 100
+  "cookingtime": 200
 }

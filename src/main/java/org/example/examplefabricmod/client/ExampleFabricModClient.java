@@ -4,9 +4,12 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.example.examplefabricmod.block.ModBlocks;
 import org.example.examplefabricmod.fluid.ModFluids;
+import org.example.examplefabricmod.screen.InjectionBenchBlock.InjectionBenchBlockScreen;
+import org.example.examplefabricmod.screen.ModScreenHandlers;
 import org.example.examplefabricmod.util.ModModelPredicateProvider;
 
 public class ExampleFabricModClient implements ClientModInitializer {
@@ -37,5 +40,7 @@ public class ExampleFabricModClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.POTTED_LILAC_FLOWER, RenderLayer.getCutout());
         // 注入工作台方块渲染
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.INJECTION_BENCH_BLOCK, RenderLayer.getCutout());
+        // 注入工作台GUI渲染
+        ScreenRegistry.register(ModScreenHandlers.INJECTION_BENCH_BLOCK_SCREEN_HANDLER, InjectionBenchBlockScreen::new);
     }
 }

@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:block/orientable",
+  "textures": {
+    "top": "examplefabricmod:machine/injection_bench_block_top",
+    "front": "examplefabricmod:machine/injection_bench_block_front",
+    "side": "examplefabricmod:machine/injection_bench_block_side"
+  }
+}

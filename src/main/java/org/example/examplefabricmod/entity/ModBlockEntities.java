@@ -10,13 +10,13 @@ import org.example.examplefabricmod.entity.BlockEntity.InjectionBenchBlockEntity
 
 public class ModBlockEntities {
 
-    public static BlockEntityType<InjectionBenchBlockEntity> INJECTION_BENCH_BLOCK;
+    public static BlockEntityType<InjectionBenchBlockEntity> INJECTION_BENCH_BLOCK_ENTITY;
 
-    public static void registerBlockEntities() {
+    public static void registerModBlockEntities() {
 
-        INJECTION_BENCH_BLOCK = Registry.register(
+        INJECTION_BENCH_BLOCK_ENTITY = Registry.register(
                 Registry.BLOCK_ENTITY_TYPE,
-                new Identifier(ExampleFabricMod.MOD_ID, "injection_bench_block"),
+                new Identifier(ExampleFabricMod.MOD_ID, "injection_bench_block_entity"),
                 FabricBlockEntityTypeBuilder.create(
                         InjectionBenchBlockEntity::new,
                         ModBlocks.INJECTION_BENCH_BLOCK).build(null)

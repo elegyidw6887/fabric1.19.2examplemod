@@ -10,11 +10,9 @@ public class ModScreenHandlers {
 
     public  static ScreenHandlerType<InjectionBenchBlockScreenHandler> INJECTION_BENCH_BLOCK_SCREEN_HANDLER;
 
-    public static void registerScreenHandlers() {
+    public static void registerModScreenHandlers() {
 
-        INJECTION_BENCH_BLOCK_SCREEN_HANDLER = ScreenHandlerRegistry.registerSimple(
-                new Identifier(ExampleFabricMod.MOD_ID, "injection_bench_block"),
-                InjectionBenchBlockScreenHandler::new);
+        INJECTION_BENCH_BLOCK_SCREEN_HANDLER = new ScreenHandlerType<>(InjectionBenchBlockScreenHandler::new);
 
         ExampleFabricMod.LOGGER.info("Registering ModScreenHandlers for " + ExampleFabricMod.MOD_ID);
     }

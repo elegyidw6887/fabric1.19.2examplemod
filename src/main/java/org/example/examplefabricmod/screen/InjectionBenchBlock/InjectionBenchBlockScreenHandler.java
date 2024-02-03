@@ -6,7 +6,6 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SimpleInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.screen.ArrayPropertyDelegate;
-import net.minecraft.screen.Property;
 import net.minecraft.screen.PropertyDelegate;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
@@ -19,6 +18,7 @@ public class InjectionBenchBlockScreenHandler extends ScreenHandler {
     private final Inventory inventory;
     private final PropertyDelegate propertyDelegate;
 
+    // 构造方法1
     public InjectionBenchBlockScreenHandler(int syncId, PlayerInventory playerInventory) {
         this(syncId, playerInventory,
                 // 此处的“size”与方块实体类中“inventory”对象的size相同
@@ -27,6 +27,7 @@ public class InjectionBenchBlockScreenHandler extends ScreenHandler {
                 new ArrayPropertyDelegate(4));
     }
 
+    // 构造方法2
     public InjectionBenchBlockScreenHandler(int syncId, PlayerInventory playerInventory, Inventory inventory, PropertyDelegate propertyDelegate) {
         super(ModScreenHandlers.INJECTION_BENCH_BLOCK_SCREEN_HANDLER, syncId);
         checkSize(inventory, 4);
@@ -75,6 +76,33 @@ public class InjectionBenchBlockScreenHandler extends ScreenHandler {
     public boolean canUse(PlayerEntity player) {
         return this.inventory.canPlayerUse(player);
     }
+
+    // 判断是否正在制作
+    public boolean isCrafting() {
+        return propertyDelegate.get(0) > 0;
+    }
+
+    // 判断是否有燃料
+    public boolean hasFuel() {
+        return propertyDelegate.get(2) > 0;
+    }
+
+    // 获取制作进度程度
+    public int getScaledProgress() {
+        int progress = this.propertyDelegate.get(0);
+        int maxProgress = this.propertyDelegate.get(1);
+        int progressArrowSize = 26; // 制作进度的像素大小（宽度）
+        return maxProgress != 0 && progress != 0 ? progress * progressArrowSize / maxProgress : 0;
+    }
+
+    // 获取燃料进度程度
+    public int getScaledFuelProgress() {
+        int fuelProgress = this.propertyDelegate.get(2);
+        int maxFuelProgress = this.propertyDelegate.get(3);
+        int fuelProgressSize = 14; // 燃料进度的像素大小
+        return maxFuelProgress != 0 ? (int) (((float) fuelProgress / (float) maxFuelProgress) * fuelProgressSize) : 0;
+    }
+
     // 用于读取玩家物品栏并添加到GUI中
     private void addPlayerInventory(PlayerInventory playerInventory) {
         for (int i = 0; i < 3; ++i) {

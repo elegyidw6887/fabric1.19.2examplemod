@@ -1,18 +1,18 @@
 {
   "variants": {
     "facing=north": {
-      "model": "examplefabricmod:block/injection_bench_block"
+      "model": "examplefabricmod:machine/injection_bench_block"
     },
     "facing=east": {
-      "model": "examplefabricmod:block/injection_bench_block",
+      "model": "examplefabricmod:machine/injection_bench_block",
       "y": 90
     },
     "facing=south": {
-      "model": "examplefabricmod:block/injection_bench_block",
+      "model": "examplefabricmod:machine/injection_bench_block",
       "y": 180
     },
     "facing=west": {
-      "model": "examplefabricmod:block/injection_bench_block",
+      "model": "examplefabricmod:machine/injection_bench_block",
       "y": 270
     }
   }

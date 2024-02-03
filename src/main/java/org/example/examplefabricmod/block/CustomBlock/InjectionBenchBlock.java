@@ -87,7 +87,7 @@ public class InjectionBenchBlock extends BlockWithEntity implements BlockEntityP
     // 实体使用方法
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        if (!world.isClient()) {
+        if (!world.isClient) {
             NamedScreenHandlerFactory screenHandlerFactory = state.createScreenHandlerFactory(world, pos);
             if (screenHandlerFactory != null) {
                 player.openHandledScreen(screenHandlerFactory);
@@ -100,6 +100,6 @@ public class InjectionBenchBlock extends BlockWithEntity implements BlockEntityP
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return checkType(type, ModBlockEntities.INJECTION_BENCH_BLOCK, InjectionBenchBlockEntity::tick);
+        return checkType(type, ModBlockEntities.INJECTION_BENCH_BLOCK_ENTITY, InjectionBenchBlockEntity::tick);
     }
 }
