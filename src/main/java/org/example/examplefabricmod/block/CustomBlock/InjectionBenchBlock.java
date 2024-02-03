@@ -49,7 +49,8 @@ public class InjectionBenchBlock extends BlockWithEntity implements BlockEntityP
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        // 我们不需要Boolean对象，因此只需要传入一个参数即可
+        // 如果需要添加与原版熔炉类似的模型切换功能则需要添加一个Boolean对象来控制
+        // 此处并未添加类似的功能因此只有一个FACING参数
         builder.add(FACING);
     }
 
