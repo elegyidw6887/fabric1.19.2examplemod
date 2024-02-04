@@ -18,6 +18,6 @@ public class ModEffects {
     }
 
     public static void registerModEffects() {
-        ExampleFabricMod.LOGGER.info("Register ModEffects for " + ExampleFabricMod.MOD_ID);
+        ExampleFabricMod.LOGGER.info("Registering ModEffects for " + ExampleFabricMod.MOD_ID);
     }
 }

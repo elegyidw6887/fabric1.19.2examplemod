@@ -44,15 +44,13 @@ public class ModOverworldBiomes {
     }
 
     // 生物群系创建方法#1
-    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall,  SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder)
-    {
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder) {
         // 方法1的参数小于方法2，因为将“waterColor”、“waterFogColor”、“skyColor”三个参数设为了固定值
-        return biome(precipitation, temperature, downfall, 4159204, 329011,7843327,  spawnBuilder, biomeBuilder);
+        return biome(precipitation, temperature, downfall, 4159204, 329011, 7843327, spawnBuilder, biomeBuilder);
     }
 
     // 生物群系创建方法#2
-    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, int skyColor,  SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder)
-    {
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, int skyColor, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder) {
         return (new Biome.Builder())
                 .precipitation(precipitation)// 降水类型
                 .temperature(temperature)// 温度

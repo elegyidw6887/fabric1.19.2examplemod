@@ -7,6 +7,7 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.example.examplefabricmod.block.ModBlocks;
+import org.example.examplefabricmod.event.ModKeyInputHandler;
 import org.example.examplefabricmod.fluid.ModFluids;
 import org.example.examplefabricmod.screen.InjectionBenchBlock.InjectionBenchBlockScreen;
 import org.example.examplefabricmod.screen.ModScreenHandlers;
@@ -16,6 +17,9 @@ public class ExampleFabricModClient implements ClientModInitializer {
 
     @Override
     public void onInitializeClient() {
+
+        // 模组按键事件注册
+        ModKeyInputHandler.register();
 
         // 葡萄作物方块渲染
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GRAPE_VINE, RenderLayer.getCutout());

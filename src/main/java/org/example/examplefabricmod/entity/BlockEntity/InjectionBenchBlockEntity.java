@@ -51,6 +51,7 @@ public class InjectionBenchBlockEntity extends BlockEntity implements NamedScree
                     default -> 0;
                 };
             }
+
             @Override
             public void set(int index, int value) {
                 switch (index) {
@@ -60,6 +61,7 @@ public class InjectionBenchBlockEntity extends BlockEntity implements NamedScree
                     case 3 -> InjectionBenchBlockEntity.this.maxFuelTime = value;
                 }
             }
+
             @Override
             public int size() {
                 return 4;

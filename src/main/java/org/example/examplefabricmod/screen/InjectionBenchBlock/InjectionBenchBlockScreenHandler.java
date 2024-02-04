@@ -111,6 +111,7 @@ public class InjectionBenchBlockScreenHandler extends ScreenHandler {
             }
         }
     }
+
     // 用于读取玩家快捷栏并添加到GUI中
     private void addPlayerHotbar(PlayerInventory playerInventory) {
         for (int i = 0; i < 9; ++i) {

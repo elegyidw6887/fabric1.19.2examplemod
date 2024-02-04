@@ -81,7 +81,7 @@ public class InjectionBenchBlock extends BlockWithEntity implements BlockEntityP
                 ItemScatterer.spawn(world, pos, (InjectionBenchBlockEntity) blockEntity);
                 world.updateComparators(pos, this);
             }
-            super .onStateReplaced(state, world, pos, newState, moved);
+            super.onStateReplaced(state, world, pos, newState, moved);
         }
     }
 

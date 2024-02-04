@@ -76,7 +76,9 @@ public class InjectionBenchBlockRecipe implements Recipe<SimpleInventory> {
     }
 
     public static class Type implements RecipeType<InjectionBenchBlockRecipe> {
-        private Type() {}
+        private Type() {
+        }
+
         public static final Type INSTANCE = new Type();
         public static final String ID = "injection_bench"; // 在配方json中类型的ID
     }
@@ -87,6 +89,7 @@ public class InjectionBenchBlockRecipe implements Recipe<SimpleInventory> {
         // 配方json文件/文件夹所需要的ID
         // 若将该处的ID作为配方文件夹使用，其中的配方没有名字格式要求
         public static final String ID = "injection_bench";
+
         // 读取json文件的方法
         @Override
         public InjectionBenchBlockRecipe read(Identifier id, JsonObject json) {
@@ -100,6 +103,7 @@ public class InjectionBenchBlockRecipe implements Recipe<SimpleInventory> {
             }
             return new InjectionBenchBlockRecipe(id, output, inputs);
         }
+
         // 针对网络的读取方法（PacketByteBuf）
         @Override
         public InjectionBenchBlockRecipe read(Identifier id, @NotNull PacketByteBuf buf) {
@@ -108,6 +112,7 @@ public class InjectionBenchBlockRecipe implements Recipe<SimpleInventory> {
             ItemStack output = buf.readItemStack();
             return new InjectionBenchBlockRecipe(id, output, inputs);
         }
+
         // 针对网络的写入方法（PacketByteBuf）
         @Override
         public void write(@NotNull PacketByteBuf buf, @NotNull InjectionBenchBlockRecipe recipe) {

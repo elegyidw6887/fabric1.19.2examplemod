@@ -30,7 +30,7 @@ public class ModPotions {
     }
 
     public static void registerModPotions() {
-        ExampleFabricMod.LOGGER.info("Register ModPotions for " + ExampleFabricMod.MOD_ID);
+        ExampleFabricMod.LOGGER.info("Registering ModPotions for " + ExampleFabricMod.MOD_ID);
         // 我们需要在接口方法中添加方法的调用
         registerPotionRecipes();
     }
