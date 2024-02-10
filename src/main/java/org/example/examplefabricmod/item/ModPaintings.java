@@ -15,6 +15,6 @@ public class ModPaintings {
     }
 
     public static void registerModPaintings() {
-        ExampleFabricMod.LOGGER.info("Registering Paintings for " + ExampleFabricMod.MOD_ID);
+        ExampleFabricMod.LOGGER.info("Registering ModPaintings for " + ExampleFabricMod.MOD_ID);
     }
 }

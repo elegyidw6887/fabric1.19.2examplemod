@@ -1,16 +1,18 @@
 package org.example.examplefabricmod;
 
 import net.fabricmc.api.ModInitializer;
-import org.example.examplefabricmod.Recipe.ModRecipes;
 import org.example.examplefabricmod.block.ModBlocks;
 import org.example.examplefabricmod.effect.ModEffects;
 import org.example.examplefabricmod.enchantment.ModEnchantments;
 import org.example.examplefabricmod.entity.ModBlockEntities;
+import org.example.examplefabricmod.event.ModEventsHandler;
 import org.example.examplefabricmod.fluid.ModFluids;
 import org.example.examplefabricmod.item.ModFuels;
 import org.example.examplefabricmod.item.ModItems;
 import org.example.examplefabricmod.item.ModPaintings;
 import org.example.examplefabricmod.item.ModPotions;
+import org.example.examplefabricmod.network.ModPacketHandler;
+import org.example.examplefabricmod.recipe.ModRecipes;
 import org.example.examplefabricmod.screen.ModScreenHandlers;
 import org.example.examplefabricmod.util.ModCustomTrades;
 import org.example.examplefabricmod.util.ModFlammableBlocks;
@@ -69,6 +71,10 @@ public class ExampleFabricMod implements ModInitializer {
         ModScreenHandlers.registerModScreenHandlers();
         // 模组配方注册
         ModRecipes.registerModRecipes();
+        // 模组服务端数据包注册
+        ModPacketHandler.registerC2SPackets();
+        // 模组服务端事件注册
+        ModEventsHandler.registerModServerEventsHandler();
 
         LOGGER.info("Hello Fabric World!");
     }

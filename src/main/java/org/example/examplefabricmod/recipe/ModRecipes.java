@@ -1,9 +1,9 @@
-package org.example.examplefabricmod.Recipe;
+package org.example.examplefabricmod.recipe;
 
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.example.examplefabricmod.ExampleFabricMod;
-import org.example.examplefabricmod.Recipe.CustomRecipe.InjectionBenchBlockRecipe;
+import org.example.examplefabricmod.recipe.CustomRecipe.InjectionBenchBlockRecipe;
 
 public class ModRecipes {
 

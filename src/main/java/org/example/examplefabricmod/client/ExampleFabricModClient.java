@@ -4,11 +4,13 @@ import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.example.examplefabricmod.block.ModBlocks;
-import org.example.examplefabricmod.event.ModKeyInputHandler;
+import org.example.examplefabricmod.event.ModEventsHandler;
 import org.example.examplefabricmod.fluid.ModFluids;
+import org.example.examplefabricmod.network.ModPacketHandler;
 import org.example.examplefabricmod.screen.InjectionBenchBlock.InjectionBenchBlockScreen;
 import org.example.examplefabricmod.screen.ModScreenHandlers;
 import org.example.examplefabricmod.util.ModModelPredicateProvider;
@@ -18,8 +20,12 @@ public class ExampleFabricModClient implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
 
-        // 模组按键事件注册
-        ModKeyInputHandler.register();
+        // 模组客户端事件注册
+        ModEventsHandler.registerModClientEventsHandler();
+        // 模组客户端数据包注册
+        ModPacketHandler.registerS2CPackets();
+        // 口渴值HUD注册
+        HudRenderCallback.EVENT.register(new ThirstHUD());
 
         // 葡萄作物方块渲染
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GRAPE_VINE, RenderLayer.getCutout());

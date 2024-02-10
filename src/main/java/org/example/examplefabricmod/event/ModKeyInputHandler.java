@@ -2,9 +2,11 @@ package org.example.examplefabricmod.event;
 
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
 import net.minecraft.client.option.KeyBinding;
 import net.minecraft.client.util.InputUtil;
-import net.minecraft.text.Text;
+import org.example.examplefabricmod.network.ModPacketHandler;
 import org.lwjgl.glfw.GLFW;
 
 public class ModKeyInputHandler {
@@ -17,7 +19,8 @@ public class ModKeyInputHandler {
         // 实现按键功能的事件注册
         ClientTickEvents.END_CLIENT_TICK.register(client -> {
             if (DrinkingKey.wasPressed()) {
-                client.player.sendChatMessage("Hello, I pressed a Key", Text.literal("") );
+                // 发送一个空的缓冲区
+                ClientPlayNetworking.send(ModPacketHandler.DRINKING_ID, PacketByteBufs.create());
             }
         });
     }
@@ -30,7 +33,7 @@ public class ModKeyInputHandler {
                 // 按键绑定类型
                 InputUtil.Type.KEYSYM,
                 // 选择要绑定的按键
-                GLFW.GLFW_KEY_O,
+                GLFW.GLFW_KEY_R,
                 // 类别
                 KEY_CATEGORY_EXAMPLE
         ));

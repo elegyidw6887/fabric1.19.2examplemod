@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.Recipe.CustomRecipe;
+package org.example.examplefabricmod.recipe.CustomRecipe;
 
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
