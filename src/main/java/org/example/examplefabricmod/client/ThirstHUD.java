@@ -31,21 +31,20 @@ public class ThirstHUD implements HudRenderCallback {
             y = height;
         }
 
-        GameOptions options = null;
-        if (new TutorialManager(client, options).isInSurvival()) {
+        if (new TutorialManager(client, null).isInSurvival()) {
             RenderSystem.setShader(GameRenderer::getPositionTexShader);
             RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
 
             RenderSystem.setShaderTexture(0, EMPTY_BOTTLE);
             for (int i = 0; i < 10; i++) {
-                DrawableHelper.drawTexture(matrixStack, x - 91 + (i * 8), y - 54, 0, 0, 9, 12,
+                DrawableHelper.drawTexture(matrixStack, x + 82 - (i * 8), y - 52, 0, 0, 9, 12,
                         9, 12);
             }
 
             RenderSystem.setShaderTexture(0, FILLED_BOTTLE);
             for (int i = 0; i < 10; i++) {
                 if (10 - ((ModEntityDataSaver) MinecraftClient.getInstance().player).getPersistentData().getInt("thirst") > i) {
-                    DrawableHelper.drawTexture(matrixStack, x - 91 + (i * 8), y - 54, 0, 0, 9, 12,
+                    DrawableHelper.drawTexture(matrixStack, x + 82 - (i * 8), y - 52, 0, 0, 9, 12,
                             9, 12);
                     // x - 19
                 } else {
