@@ -9,6 +9,8 @@ public class ModEventsHandler {
 
         // 注册刻事件对象实现口渴值的随机降低
         ServerTickEvents.START_SERVER_TICK.register(new PlayerTickHandler());
+        // 注册攻击羊时发送文字的事件
+        AttackEntityHandler.EVENT.register(new AttackEntityHandler());
 
         ExampleFabricMod.LOGGER.info("Registering ModServerEventsHandler for " + ExampleFabricMod.MOD_ID);
     }
