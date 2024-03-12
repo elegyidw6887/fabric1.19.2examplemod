@@ -66,12 +66,27 @@ public class ModItems {
     // 唱片物品
     public static final Item BAR_BRAWL_MUSIC_DISC = registerItem("bar_brawl_music_disc",
             new MusicDiscItem(7, ModSounds.BAR_BRAWL, new FabricItemSettings().group(ModItemGroup.LOSTsMOD).maxCount(1), 122));
-    // 血桶物品
-    public static final Item BLOOD_BUCKET = registerItem("blood_bucket",
-            new BucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1).group(ModItemGroup.LOSTsMOD)));
     // 紫水晶弓物品
     public static final Item AMETHYST_BOW = registerItem("amethyst_bow",
             new BowItem(new FabricItemSettings().group(ModItemGroup.LOSTsMOD).maxCount(1).maxDamage(640)));
+
+    //////////////////////////////////////////////////正式版MOD测试内容//////////////////////////////////////////////////
+    // 血水晶
+    public static final Item BLOODY_CRYSTAL = registerItem("bloody_crystal",
+            new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(64)));
+    // 血晶钻
+    public static final Item BLOODY_DIAMOND = registerItem("bloody_diamond",
+            new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(64)));
+    // 血晶铁
+    public static final Item BLOODY_IRON = registerItem("bloody_iron",
+            new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(64)));
+    // 血瓶
+    public static final Item BLOOD_BOTTLE = registerItem("blood_bottle",
+            new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(1)));
+    // 血桶物品
+    public static final Item BLOOD_BUCKET = registerItem("blood_bucket",
+            new BucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1).group(ModItemGroup.LOSTsMOD)));
+
 
     private static Item registerItem(String name, Item item) { // 注册物品
         return Registry.register(Registry.ITEM, new Identifier(ExampleFabricMod.MOD_ID, name), item);

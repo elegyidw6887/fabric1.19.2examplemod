@@ -45,9 +45,6 @@ public class ModBlocks {
     // 葡萄作物方块
     public static final Block GRAPE_VINE = registerBlockWithoutBlockItem("grape_vine",
             new GrapeVineBlock(FabricBlockSettings.copy(Blocks.WHEAT).nonOpaque()));
-    // 血流体方块（流体在游戏中没有对应的方块物品）
-    public static final Block BLOOD = registerBlockWithoutBlockItem("blood_block",
-            new ModFluidBlock(ModFluids.STILL_BLOOD, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
     // 蓝花楹原木、木头、去皮原木以及去皮木头方块
     public static final Block JACARANDA_LOG = registerBlock("jacaranda_log",
             new PillarBlock(FabricBlockSettings.copy(Blocks.OAK_LOG)), ModItemGroup.LOSTsMOD);
@@ -72,9 +69,24 @@ public class ModBlocks {
                     FabricBlockSettings.copy(Blocks.DANDELION).strength(4.0F).nonOpaque()), ModItemGroup.LOSTsMOD);
     public static final Block POTTED_LILAC_FLOWER = registerBlockWithoutBlockItem("lilac_flower_potted",
             new FlowerPotBlock(ModBlocks.LILAC_FLOWER, FabricBlockSettings.copy(Blocks.POTTED_DANDELION)));
+
+    //////////////////////////////////////////////////正式版MOD测试内容//////////////////////////////////////////////////
+    // 血晶石
+    public static final Block BLOODY_BLOCK = registerBlock("bloody_block",
+            new Block(FabricBlockSettings.of(Material.STONE).requiresTool()), ModItemGroup.THE_LOST_LAND);
+    // 血晶矿
+    public static final Block BLOODY_CRYSTAL_ORE = registerBlock("bloody_crystal_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).hardness(3.0F).requiresTool(), UniformIntProvider.create(2, 6)), ModItemGroup.THE_LOST_LAND);
+    // 深层血晶矿
+    public static final Block DEEPSLATE_BLOODY_CRYSTAL_ORE = registerBlock("deepslate_bloody_crystal_ore",
+            new OreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.5F).requiresTool(), UniformIntProvider.create(2, 6)), ModItemGroup.THE_LOST_LAND);
+    // 血流体方块
+    public static final Block BLOOD = registerBlockWithoutBlockItem("blood_block",
+            new ModFluidBlock(ModFluids.STILL_BLOOD, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
     // 注入工作台方块
     public static final Block INJECTION_BENCH_BLOCK = registerBlock("injection_bench_block",
             new InjectionBenchBlock(FabricBlockSettings.of(Material.STONE).requiresTool()), ModItemGroup.LOSTsMOD);
+
 
     // 调用类中方块相关物品对象注册方法，同时做到方块与方块相关物品对象的注册
     private static Block registerBlock(String name, Block block, ItemGroup itemGroup) { // 注册方块的同时注册一个对应的物品

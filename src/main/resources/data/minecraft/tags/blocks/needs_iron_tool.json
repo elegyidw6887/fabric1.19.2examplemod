@@ -4,6 +4,8 @@
     "examplefabricmod:amethyst_block",
     "examplefabricmod:amethyst_ore",
     "examplefabricmod:deepslate_amethyst_ore",
-    "examplefabricmod:jump_block"
+    "examplefabricmod:jump_block",
+
+    "examplefabricmod:blood_block"
   ]
 }

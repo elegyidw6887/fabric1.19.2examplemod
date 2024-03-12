@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.client;
+package org.example.examplefabricmod;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.example.examplefabricmod.block.ModBlocks;
+import org.example.examplefabricmod.client.ThirstHUD;
 import org.example.examplefabricmod.event.ModEventsHandler;
 import org.example.examplefabricmod.fluid.ModFluids;
 import org.example.examplefabricmod.network.ModPacketHandler;
