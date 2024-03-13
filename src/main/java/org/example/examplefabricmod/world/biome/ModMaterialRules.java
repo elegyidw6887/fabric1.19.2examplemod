@@ -2,6 +2,9 @@ package org.example.examplefabricmod.world.biome;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
+import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.gen.YOffset;
+import net.minecraft.world.gen.noise.NoiseParametersKeys;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 import org.example.examplefabricmod.block.ModBlocks;
 
@@ -10,11 +13,6 @@ public class ModMaterialRules {
     private static final MaterialRules.MaterialRule DIRT = makeStateRule(ModBlocks.BLOODY_CRYSTAL_ORE);
     private static final MaterialRules.MaterialRule RED_TERRACOTTA = makeStateRule(Blocks.RED_TERRACOTTA);
     private static final MaterialRules.MaterialRule BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
-    private static final MaterialRules.MaterialRule BLOODY_OCEAN = makeStateRule(ModBlocks.BLOOD);
-
-
-    //    private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
-    //    private static final SurfaceRules.RuleSource GRASS_BLOCK = makeStateRule(Blocks.GRASS_BLOCK);
 
     // 制作规则
     public static MaterialRules.MaterialRule makeRules() {
@@ -27,10 +25,6 @@ public class ModMaterialRules {
         STONE_DEPTH_CEILING：生物群系天花板，地下开放空间天花板层
         STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH：生物群系天花板与地表深度
          */
-
-    // MaterialRules.MaterialCondition isAtOrAboveWaterLevel = MaterialRules.water(-1, 0);
-    // MaterialRules.MaterialRule grassSurface = MaterialRules.sequence(MaterialRules.condition(isAtOrAboveWaterLevel, GRASS_BLOCK), DIRT);
-
         return MaterialRules.sequence(
                 // 特定自定义生物群系规则
                 MaterialRules.sequence(

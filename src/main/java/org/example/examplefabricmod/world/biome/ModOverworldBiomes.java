@@ -7,14 +7,9 @@ import net.minecraft.sound.BiomeMoodSound;
 import net.minecraft.sound.MusicSound;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.biome.SpawnSettings;
-import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
 import org.example.examplefabricmod.world.feature.ModBiomeFeatures;
-import org.example.examplefabricmod.world.feature.ModPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 
 public class ModOverworldBiomes {
