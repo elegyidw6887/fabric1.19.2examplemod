@@ -19,7 +19,7 @@
       "org.example.examplefabricmod.ExampleFabricMod"
     ],
     "terrablender": [
-      "org.example.examplefabricmod.world.biome.ModTerrablenderAPI"
+      "org.example.examplefabricmod.world.biome.TerraBlender.ModTerrablenderAPI"
     ]
   },
   "mixins": [

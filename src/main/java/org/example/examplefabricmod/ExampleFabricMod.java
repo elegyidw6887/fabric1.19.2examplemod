@@ -18,12 +18,14 @@ import org.example.examplefabricmod.util.ModCustomTrades;
 import org.example.examplefabricmod.util.ModFlammableBlocks;
 import org.example.examplefabricmod.util.ModStrippables;
 import org.example.examplefabricmod.world.biome.ModBiomes;
+import org.example.examplefabricmod.world.biome.ModMaterialRules;
 import org.example.examplefabricmod.world.dimension.ModDimensions;
 import org.example.examplefabricmod.world.feature.ModConfiguredFeatures;
 import org.example.examplefabricmod.world.feature.ModPlacedFeatures;
 import org.example.examplefabricmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import terrablender.api.SurfaceRuleManager;
 
 public class ExampleFabricMod implements ModInitializer {
 
@@ -63,6 +65,8 @@ public class ExampleFabricMod implements ModInitializer {
         ModWorldGeneration.worldGeneration();
         // 模组生物群系注册
         ModBiomes.registerModBiomes();
+        // 模组自定义生物群系表面规则
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ExampleFabricMod.MOD_ID, ModMaterialRules.makeRules());
         // 模组维度注册
         ModDimensions.registerModDimensions();
         // 模组方块实体注册

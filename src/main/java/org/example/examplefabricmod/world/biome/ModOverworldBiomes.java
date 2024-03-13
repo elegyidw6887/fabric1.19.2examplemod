@@ -1,14 +1,15 @@
 package org.example.examplefabricmod.world.biome;
 
+import net.minecraft.client.sound.MusicType;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
 import net.minecraft.sound.BiomeMoodSound;
+import net.minecraft.sound.MusicSound;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.util.math.MathHelper;
-import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.BiomeEffects;
-import net.minecraft.world.biome.GenerationSettings;
-import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.biome.*;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import org.jetbrains.annotations.Nullable;
 
 public class ModOverworldBiomes {
 
@@ -31,8 +32,28 @@ public class ModOverworldBiomes {
         DefaultBiomeFeatures.addPlainsFeatures(biomeBuilder);// 添加平原特征
         DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);// 添加默认蘑菇
         DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);// 添加默认植被
+        DefaultBiomeFeatures.addAmethystGeodes(biomeBuilder);// 添加紫水晶晶洞
 
-        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, spawnBuilder, biomeBuilder);
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, spawnBuilder, biomeBuilder, null);
+    }
+
+    public static Biome BLOODY_CAVES() {
+        SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        spawnBuilder.spawn(SpawnGroup.AXOLOTLS, new SpawnSettings.SpawnEntry(EntityType.AXOLOTL, 10, 4, 6));
+        spawnBuilder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
+        DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
+
+        GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
+        globalOverworldGeneration(biomeBuilder);
+        DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        DefaultBiomeFeatures.addClayOre(biomeBuilder);
+        DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
+        DefaultBiomeFeatures.addLushCavesDecoration(biomeBuilder);
+
+        MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_LUSH_CAVES);
+
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, spawnBuilder, biomeBuilder, musicSound);
     }
 
     // 计算天空颜色
@@ -44,13 +65,14 @@ public class ModOverworldBiomes {
     }
 
     // 生物群系创建方法#1
-    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder) {
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
         // 方法1的参数小于方法2，因为将“waterColor”、“waterFogColor”、“skyColor”三个参数设为了固定值
-        return biome(precipitation, temperature, downfall, 4159204, 329011, 7843327, spawnBuilder, biomeBuilder);
+        return biome(precipitation, temperature, downfall, 4159204, 329011, 7843327, spawnBuilder, biomeBuilder, music);
     }
 
     // 生物群系创建方法#2
-    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, int skyColor, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder) {
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, int skyColor,
+                               SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
         return (new Biome.Builder())
                 .precipitation(precipitation)// 降水类型
                 .temperature(temperature)// 温度
@@ -62,7 +84,7 @@ public class ModOverworldBiomes {
                                 .fogColor(12638463)// 雾颜色
                                 .skyColor(ModOverworldBiomes.calculateSkyColor(temperature))// 天空颜色
                                 .moodSound(BiomeMoodSound.CAVE)// 环境音效
-                                .music(null)
+                                .music(music)
                                 .build())
                 .spawnSettings(spawnBuilder.build())// 生物生成设定
                 .generationSettings(biomeBuilder.build())// 生物群系生成设定
@@ -71,7 +93,6 @@ public class ModOverworldBiomes {
 
     // 主世界通用生物群系特征
     public static void globalOverworldGeneration(GenerationSettings.Builder builder) {
-        DefaultBiomeFeatures.addAmethystGeodes(builder);// 添加紫水晶晶洞
         DefaultBiomeFeatures.addLandCarvers(builder);// 添加陆地洞穴
         DefaultBiomeFeatures.addDungeons(builder);// 添加地牢
         DefaultBiomeFeatures.addMineables(builder);// 添加可开采物
