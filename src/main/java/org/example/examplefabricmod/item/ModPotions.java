@@ -3,11 +3,11 @@ package org.example.examplefabricmod.item;
 import net.minecraft.entity.effect.StatusEffectInstance;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.Potions;
+import net.minecraft.recipe.BrewingRecipeRegistry;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.example.examplefabricmod.ExampleFabricMod;
 import org.example.examplefabricmod.effect.ModEffects;
-import org.example.examplefabricmod.mixin.BrewingRecipeRegistryMixin;
 
 public class ModPotions {
 
@@ -20,7 +20,7 @@ public class ModPotions {
     }
 
     private static void registerPotionRecipes() { // 方法调用
-        BrewingRecipeRegistryMixin.invokeRegisterPotionRecipe(
+        BrewingRecipeRegistry.registerPotionRecipe(
                 /*
                 参数1：输入药水
                 参数2：炼药的物品

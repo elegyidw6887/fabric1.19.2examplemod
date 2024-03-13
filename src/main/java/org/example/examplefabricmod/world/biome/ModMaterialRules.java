@@ -10,6 +10,7 @@ public class ModMaterialRules {
     private static final MaterialRules.MaterialRule DIRT = makeStateRule(ModBlocks.BLOODY_CRYSTAL_ORE);
     private static final MaterialRules.MaterialRule RED_TERRACOTTA = makeStateRule(Blocks.RED_TERRACOTTA);
     private static final MaterialRules.MaterialRule BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
+    private static final MaterialRules.MaterialRule BLOODY_OCEAN = makeStateRule(ModBlocks.BLOOD);
 
 
     //    private static final SurfaceRules.RuleSource DIRT = makeStateRule(Blocks.DIRT);
@@ -39,6 +40,10 @@ public class ModMaterialRules {
                         MaterialRules.condition(
                                 MaterialRules.biome(ModBiomes.THE_SAME_AS_PLAIN),
                                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH, DIRT))),
+                // 血腥晶洞自定义
+                MaterialRules.condition(
+                        MaterialRules.biome(ModBiomes.BLOODY_CAVES),
+                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH, GRASS_BLOCK)),
                 //  全部自定义生物群系通用规则
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, RED_TERRACOTTA)
         );
