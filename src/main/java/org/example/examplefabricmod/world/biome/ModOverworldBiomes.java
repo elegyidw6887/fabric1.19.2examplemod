@@ -11,7 +11,10 @@ import net.minecraft.world.biome.Biome;
 import net.minecraft.world.biome.BiomeEffects;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.biome.SpawnSettings;
+import net.minecraft.world.gen.GenerationStep;
 import net.minecraft.world.gen.feature.DefaultBiomeFeatures;
+import org.example.examplefabricmod.world.feature.ModBiomeFeatures;
+import org.example.examplefabricmod.world.feature.ModPlacedFeatures;
 import org.jetbrains.annotations.Nullable;
 
 public class ModOverworldBiomes {
@@ -36,6 +39,9 @@ public class ModOverworldBiomes {
         DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);// 添加默认蘑菇
         DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);// 添加默认植被
         DefaultBiomeFeatures.addAmethystGeodes(biomeBuilder);// 添加紫水晶晶洞
+        //添加自定义特征
+        ModBiomeFeatures.addAmethystOre(biomeBuilder);
+        ModBiomeFeatures.addAmethystGeodes(biomeBuilder);
 
         return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, spawnBuilder, biomeBuilder, null);
     }
@@ -54,6 +60,8 @@ public class ModOverworldBiomes {
         DefaultBiomeFeatures.addClayOre(biomeBuilder);
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
         DefaultBiomeFeatures.addLushCavesDecoration(biomeBuilder);
+
+        ModBiomeFeatures.addAmethystOre(biomeBuilder);
 
         MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_LUSH_CAVES);
 
