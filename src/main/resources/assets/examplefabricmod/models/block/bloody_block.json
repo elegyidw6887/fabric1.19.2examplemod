@@ -1,6 +1,0 @@
-{
-  "parent": "block/cube_all",
-  "textures": {
-    "all": "examplefabricmod:block/bloody_block"
-  }
-}

@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "WWW",
+    "WWW"
+  ],
+  "key": {
+    "W": {
+      "item": "examplefabricmod:bloody_crystal"
+    }
+  },
+  "result": {
+    "item": "examplefabricmod:bloody_crystal_block",
+    "count": 1
+  }
+}

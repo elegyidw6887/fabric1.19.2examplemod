@@ -72,7 +72,7 @@ public class ModBlocks {
 
     //////////////////////////////////////////////////正式版MOD测试内容//////////////////////////////////////////////////
     // 血晶石
-    public static final Block BLOODY_BLOCK = registerBlock("bloody_block",
+    public static final Block BLOODY_CRYSTAL_BLOCK = registerBlock("bloody_crystal_block",
             new Block(FabricBlockSettings.of(Material.STONE).requiresTool()), ModItemGroup.THE_LOST_LAND);
     // 血晶矿
     public static final Block BLOODY_CRYSTAL_ORE = registerBlock("bloody_crystal_ore",

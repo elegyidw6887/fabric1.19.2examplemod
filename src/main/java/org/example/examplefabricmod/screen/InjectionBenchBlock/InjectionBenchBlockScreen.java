@@ -38,13 +38,18 @@ public class InjectionBenchBlockScreen extends HandledScreen<InjectionBenchBlock
         // 新增
         if (handler.isCrafting()) {
             drawTexture(matrices, x + 84, y + 22, 176, 14, handler.getScaledProgress(), 36);
+            // x默认为-1，y默认为-1；
+            // UI默认左上角为（0，0）
             // x的84与y的22就是在GUI中进度条最左上角的像素点位置（我们想要进度条开始进行的位置）
             // u的176与v的14就是我们在GUI中为其准备的进度条的最左上角的像素点位置（我们准备好的进度条）
+            // height的36为进度GUI的高度。
         }
         // 新增
         if (handler.hasFuel()) {
             drawTexture(matrices, x + 18, y + 23 + 14 - handler.getScaledFuelProgress(), 176,
                     14 - handler.getScaledFuelProgress(), 14, handler.getScaledFuelProgress());
+            // x默认为-1，y默认为-1；
+            // UI默认左上角为（0，0）
             // x的18与y的23+14就是在GUI中燃料燃烧进度最左下角的像素点位置，其中14为燃料燃烧进度的y值像素，23为燃料燃烧进度左上角的位置
             // y + 23 + 14 - handler.getScaledFuelProgress()中的handler.getScaledFuelProgress()就是燃料的燃烧进度
             // 因为燃料燃烧的进度与制作进度相反，为渐渐消失，因此需要handler.getScaledFuelProgress()来进行控制
