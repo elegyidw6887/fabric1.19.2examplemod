@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.event;
+package org.example.examplefabricmod.event.CustomEvent;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import net.minecraft.client.MinecraftClient;

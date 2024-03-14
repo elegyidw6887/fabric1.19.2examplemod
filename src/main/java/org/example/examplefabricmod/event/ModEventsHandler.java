@@ -2,6 +2,9 @@ package org.example.examplefabricmod.event;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
 import org.example.examplefabricmod.ExampleFabricMod;
+import org.example.examplefabricmod.event.CustomEvent.AttackEntityHandler;
+import org.example.examplefabricmod.event.CustomEvent.ModKeyInputHandler;
+import org.example.examplefabricmod.event.CustomEvent.PlayerTickHandler;
 
 public class ModEventsHandler {
 

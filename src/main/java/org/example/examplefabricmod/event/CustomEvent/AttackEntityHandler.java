@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.event;
+package org.example.examplefabricmod.event.CustomEvent;
 
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback;
 import net.minecraft.entity.Entity;
