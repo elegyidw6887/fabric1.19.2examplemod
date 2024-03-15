@@ -9,6 +9,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import org.example.examplefabricmod.effect.ModEffects;
 import org.example.examplefabricmod.util.CustomData.ThirstData;
 import org.example.examplefabricmod.util.ModArmorMaterials;
 import org.example.examplefabricmod.util.ModEntityDataSaver;
@@ -35,6 +36,21 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
             // 为装备全套紫水晶的玩家赋予锋利V的永久BUFF
             if (ModFullArmorEffect.getArmorEffect(playerEntity, ModArmorMaterials.AMETHYST)) {
                 playerEntity.addStatusEffect(new StatusEffectInstance(StatusEffects.STRENGTH, 40, 4));
+            }
+
+            int thirst = ((ModEntityDataSaver) playerEntity).getPersistentData().getInt("thirst");
+            if (thirst > 0) {
+                if (10- thirst >8) {
+                    playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 1));
+                } else if (10- thirst >7) {
+                    playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 2));
+                } else if (10- thirst > 5) {
+                    playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 3));
+                } else if (10- thirst > 3) {
+                    playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 4));
+                } else {
+                    playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 5));
+                }
             }
         }
     }
