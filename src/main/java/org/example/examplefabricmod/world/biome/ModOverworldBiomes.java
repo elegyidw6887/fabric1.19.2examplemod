@@ -32,7 +32,7 @@ public class ModOverworldBiomes {
         DefaultBiomeFeatures.addDefaultOres(biomeBuilder); // 添加默认矿物
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);// 添加默认圆盘（类似圆盘图案的方块聚合体地物）
         DefaultBiomeFeatures.addInfestedStone(biomeBuilder);// 添加蠹虫方块
-        DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);// 添加平原高草
+        DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);// 添加平原草丛
         DefaultBiomeFeatures.addPlainsFeatures(biomeBuilder);// 添加平原特征
         DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);// 添加默认蘑菇
         DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);// 添加默认植被
@@ -47,17 +47,35 @@ public class ModOverworldBiomes {
     public static Biome BLOODY_CAVES() {
 
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
+        // 添加蝾螈
         spawnBuilder.spawn(SpawnGroup.AXOLOTLS, new SpawnSettings.SpawnEntry(EntityType.AXOLOTL, 10, 4, 6));
+        // 添加热带鱼
         spawnBuilder.spawn(SpawnGroup.WATER_AMBIENT, new SpawnSettings.SpawnEntry(EntityType.TROPICAL_FISH, 25, 8, 8));
+        // 添加蝙蝠和怪物
         DefaultBiomeFeatures.addBatsAndMonsters(spawnBuilder);
 
         GenerationSettings.Builder biomeBuilder = new GenerationSettings.Builder();
         globalOverworldGeneration(biomeBuilder);
+        // 添加平原草丛
         DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);
+        // 添加默认矿物
         DefaultBiomeFeatures.addDefaultOres(biomeBuilder);
+        // 添加黏土矿
         DefaultBiomeFeatures.addClayOre(biomeBuilder);
+        // 添加默认圆盘
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
+        // 添加繁茂洞穴装饰
         DefaultBiomeFeatures.addLushCavesDecoration(biomeBuilder);
+        /*
+        * 包含：
+        * 天花板植被（包含天花板的苔藓块）
+        * 洞穴藤蔓
+        * 洞穴粘土
+        * 洞穴植被（包含地表苔藓块）
+        * 杜鹃花树
+        * 孢子花
+        * 洞穴经典藤蔓
+        * */
 
         ModBiomeFeatures.addAmethystOre(biomeBuilder);
 

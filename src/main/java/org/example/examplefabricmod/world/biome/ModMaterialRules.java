@@ -31,10 +31,13 @@ public class ModMaterialRules {
                         MaterialRules.condition(
                                 MaterialRules.biome(ModBiomes.THE_SAME_AS_PLAIN),
                                 MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH, DIRT))),
-                // 血腥晶洞自定义
-                MaterialRules.condition(
-                        MaterialRules.biome(ModBiomes.BLOODY_CAVES),
-                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH, GRASS_BLOCK)),
+                        // 血腥晶洞自定义
+                        MaterialRules.condition(
+                                MaterialRules.biome(ModBiomes.BLOODY_CAVES),
+                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_6, GRASS_BLOCK)),
+                        MaterialRules.condition(
+                                MaterialRules.biome(ModBiomes.BLOODY_CAVES),
+                                MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH, BLUE_TERRACOTTA)),
                 //  全部自定义生物群系通用规则
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, RED_TERRACOTTA)
         );
