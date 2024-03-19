@@ -81,7 +81,7 @@ public class ModOverworldBiomes {
 
         MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_LUSH_CAVES);
 
-        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, spawnBuilder, biomeBuilder, musicSound);
+        return biome(Biome.Precipitation.RAIN, 0.5F, 0.5F, spawnBuilder, biomeBuilder, musicSound);
     }
 
     // 计算天空颜色
@@ -95,11 +95,11 @@ public class ModOverworldBiomes {
     // 生物群系创建方法#1
     private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
         // 方法1的参数小于方法2，因为将“waterColor”、“waterFogColor”、“skyColor”三个参数设为了固定值
-        return biome(precipitation, temperature, downfall, 4159204, 329011, 7843327, spawnBuilder, biomeBuilder, music);
+        return biome(precipitation, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, music);
     }
 
     // 生物群系创建方法#2
-    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor, int skyColor,
+    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor,
                                SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
         return (new Biome.Builder())
                 .precipitation(precipitation)// 降水类型

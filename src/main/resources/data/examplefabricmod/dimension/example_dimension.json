@@ -77,6 +77,18 @@
             "depth": 0,
             "offset": 0
           }
+        },
+        {
+          "biome": "examplefabricmod:bloody_caves",
+          "parameters": {
+            "temperature": 0.2,
+            "humidity": 0.3,
+            "continentalness": 0,
+            "erosion": 0,
+            "weirdness": 0,
+            "depth": 0.5,
+            "offset": 0
+          }
         }
       ]
     }
