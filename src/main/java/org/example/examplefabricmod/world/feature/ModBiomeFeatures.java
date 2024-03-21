@@ -1,7 +1,15 @@
 package org.example.examplefabricmod.world.feature;
 
+import net.minecraft.block.Blocks;
+import net.minecraft.util.registry.RegistryEntry;
 import net.minecraft.world.biome.GenerationSettings;
 import net.minecraft.world.gen.GenerationStep;
+import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.placementmodifier.BiomePlacementModifier;
+import net.minecraft.world.gen.placementmodifier.NoiseThresholdCountPlacementModifier;
+import net.minecraft.world.gen.placementmodifier.SquarePlacementModifier;
+import net.minecraft.world.gen.stateprovider.BlockStateProvider;
+import org.example.examplefabricmod.block.ModBlocks;
 
 public class ModBiomeFeatures {
 

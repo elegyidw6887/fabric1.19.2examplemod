@@ -24,7 +24,7 @@ public class ModOverworldRegions extends Region {
     public void addBiomes(Registry<Biome> registry, Consumer<Pair<MultiNoiseUtil.NoiseHypercube, RegistryKey<Biome>>> mapper) {
         this.addModifiedVanillaOverworldBiomes(mapper, modifiedVanillaOverworldBuilder -> {
             // 将原版游戏中沙漠群系替换为自定义生物群系
-            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.DESERT, ModBiomes.THE_SAME_AS_PLAIN);
+            modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.PLAINS, ModBiomes.BLOODY_PLAIN);
             // 血腥洞穴替换繁花洞穴
             modifiedVanillaOverworldBuilder.replaceBiome(BiomeKeys.LUSH_CAVES, ModBiomes.BLOODY_CAVES);
         });

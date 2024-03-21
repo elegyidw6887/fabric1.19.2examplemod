@@ -67,7 +67,7 @@
           }
         },
         {
-          "biome": "examplefabricmod:the_same_as_plain",
+          "biome": "examplefabricmod:bloody_plain",
           "parameters": {
             "temperature": 0,
             "humidity": 0,

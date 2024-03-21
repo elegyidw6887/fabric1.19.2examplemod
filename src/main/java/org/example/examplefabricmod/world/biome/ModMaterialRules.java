@@ -6,8 +6,8 @@ import net.minecraft.world.gen.surfacebuilder.MaterialRules;
 import org.example.examplefabricmod.block.ModBlocks;
 
 public class ModMaterialRules {
-    private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(ModBlocks.AMETHYST_BLOCK);
-    private static final MaterialRules.MaterialRule DIRT = makeStateRule(ModBlocks.BLOODY_CRYSTAL_ORE);
+    private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(ModBlocks.BLOODY_DIRT_BLOCK);
+     private static final MaterialRules.MaterialRule DIRT = makeStateRule(ModBlocks.BLOODY_CRYSTAL_ORE);
     private static final MaterialRules.MaterialRule RED_TERRACOTTA = makeStateRule(Blocks.RED_TERRACOTTA);
     private static final MaterialRules.MaterialRule BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
 
@@ -25,21 +25,17 @@ public class ModMaterialRules {
         STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH：生物群系天花板与地表深度
          */
         return MaterialRules.sequence(
-                // 特定自定义生物群系规则
-                MaterialRules.sequence(
-                        MaterialRules.condition(
-                                MaterialRules.biome(ModBiomes.THE_SAME_AS_PLAIN),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, GRASS_BLOCK)),
-                        MaterialRules.condition(
-                                MaterialRules.biome(ModBiomes.THE_SAME_AS_PLAIN),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH, DIRT))),
-                        // 血腥晶洞自定义
-                        MaterialRules.condition(
-                                MaterialRules.biome(ModBiomes.BLOODY_CAVES),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_6, BLOODY_BLOCK)),
-                        MaterialRules.condition(
-                                MaterialRules.biome(ModBiomes.BLOODY_CAVES),
-                                MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH, BLUE_TERRACOTTA)),
+                // 血腥之地自定义
+//                MaterialRules.condition(
+//                        MaterialRules.biome(ModBiomes.BLOODY_PLAIN),
+//                        MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, GRASS_BLOCK)),
+                // 血腥晶洞自定义
+                MaterialRules.condition(
+                        MaterialRules.biome(ModBiomes.BLOODY_CAVES),
+                        MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH_RANGE_6, BLOODY_BLOCK)),
+                MaterialRules.condition(
+                        MaterialRules.biome(ModBiomes.BLOODY_CAVES),
+                        MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH, BLUE_TERRACOTTA)),
                 //  全部自定义生物群系通用规则
                 MaterialRules.condition(MaterialRules.STONE_DEPTH_CEILING, RED_TERRACOTTA)
         );

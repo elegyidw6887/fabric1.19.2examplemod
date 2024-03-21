@@ -18,7 +18,7 @@ import org.jetbrains.annotations.Nullable;
 public class ModOverworldBiomes {
 
     // 自定义生物群系的创建
-    public static Biome THE_SAME_AS_PLAIN() {
+    public static Biome BLOODY_PLAIN() {
 
         SpawnSettings.Builder spawnBuilder = new SpawnSettings.Builder();
         DefaultBiomeFeatures.addPlainsMobs(spawnBuilder);// 添加平原生物
@@ -32,7 +32,7 @@ public class ModOverworldBiomes {
         DefaultBiomeFeatures.addDefaultOres(biomeBuilder); // 添加默认矿物
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);// 添加默认圆盘（类似圆盘图案的方块聚合体地物）
         DefaultBiomeFeatures.addInfestedStone(biomeBuilder);// 添加蠹虫方块
-        DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);// 添加平原草丛
+        DefaultBiomeFeatures.addPlainsTallGrass(biomeBuilder);// 添加平原高草
         DefaultBiomeFeatures.addPlainsFeatures(biomeBuilder);// 添加平原特征
         DefaultBiomeFeatures.addDefaultMushrooms(biomeBuilder);// 添加默认蘑菇
         DefaultBiomeFeatures.addDefaultVegetation(biomeBuilder);// 添加默认植被
@@ -41,7 +41,7 @@ public class ModOverworldBiomes {
         ModBiomeFeatures.addAmethystOre(biomeBuilder);
         ModBiomeFeatures.addAmethystGeodes(biomeBuilder);
 
-        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, spawnBuilder, biomeBuilder, null);
+        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 4159204, 329011, spawnBuilder, biomeBuilder, null);
     }
 
     public static Biome BLOODY_CAVES() {
@@ -81,7 +81,7 @@ public class ModOverworldBiomes {
 
         MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_LUSH_CAVES);
 
-        return biome(Biome.Precipitation.RAIN, 0.5F, 0.5F, spawnBuilder, biomeBuilder, musicSound);
+        return biome(Biome.Precipitation.RAIN, 0.5F, 0.5F,15689728, 15689728, spawnBuilder, biomeBuilder, musicSound);
     }
 
     // 计算天空颜色
@@ -92,13 +92,7 @@ public class ModOverworldBiomes {
         return MathHelper.hsvToRgb(0.62222224f - f * 0.05f, 0.5f + f * 0.1f, 1.0f);
     }
 
-    // 生物群系创建方法#1
-    private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
-        // 方法1的参数小于方法2，因为将“waterColor”、“waterFogColor”、“skyColor”三个参数设为了固定值
-        return biome(precipitation, temperature, downfall, 4159204, 329011, spawnBuilder, biomeBuilder, music);
-    }
-
-    // 生物群系创建方法#2
+    // 生物群系创建方法
     private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor,
                                SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
         return (new Biome.Builder())
@@ -109,8 +103,9 @@ public class ModOverworldBiomes {
                         (new BiomeEffects.Builder())
                                 .waterColor(waterColor)// 水颜色
                                 .waterFogColor(waterFogColor)// 水雾颜色
-                                .fogColor(12638463)// 雾颜色
+                                .fogColor(waterFogColor)// 雾颜色
                                 .skyColor(ModOverworldBiomes.calculateSkyColor(temperature))// 天空颜色
+                                .grassColor(8789267)
                                 .moodSound(BiomeMoodSound.CAVE)// 环境音效
                                 .music(music)
                                 .build())

@@ -8,16 +8,16 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.item.BlockItem;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import org.example.examplefabricmod.ExampleFabricMod;
-import org.example.examplefabricmod.block.CustomBlock.AmethystLampBlock;
-import org.example.examplefabricmod.block.CustomBlock.GrapeVineBlock;
-import org.example.examplefabricmod.block.CustomBlock.InjectionBenchBlock;
-import org.example.examplefabricmod.block.CustomBlock.JumpBlock;
+import org.example.examplefabricmod.block.CustomBlock.*;
 import org.example.examplefabricmod.fluid.ModFluids;
 import org.example.examplefabricmod.util.ModItemGroup;
 import org.example.examplefabricmod.util.PublicConstructor.ModFluidBlock;
@@ -80,12 +80,15 @@ public class ModBlocks {
     // 深层血晶矿
     public static final Block DEEPSLATE_BLOODY_CRYSTAL_ORE = registerBlock("deepslate_bloody_crystal_ore",
             new OreBlock(FabricBlockSettings.of(Material.STONE).hardness(4.5F).requiresTool(), UniformIntProvider.create(2, 6)), ModItemGroup.THE_LOST_LAND);
+    //
+    public static final Block BLOODY_DIRT_BLOCK = registerBlock("bloody_dirt_block",
+            new GrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6f).sounds(BlockSoundGroup.GRASS)) , ModItemGroup.THE_LOST_LAND);
     // 血流体方块
     public static final Block BLOOD = registerBlockWithoutBlockItem("blood_block",
             new ModFluidBlock(ModFluids.STILL_BLOOD, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
     // 注入工作台方块
     public static final Block INJECTION_BENCH_BLOCK = registerBlock("injection_bench_block",
-            new InjectionBenchBlock(FabricBlockSettings.of(Material.STONE).requiresTool()), ModItemGroup.LOSTsMOD);
+            new InjectionBenchBlock(FabricBlockSettings.of(Material.STONE).requiresTool()), ModItemGroup.THE_LOST_LAND);
 
 
     // 调用类中方块相关物品对象注册方法，同时做到方块与方块相关物品对象的注册

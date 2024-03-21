@@ -1,0 +1,21 @@
+{
+  "variants": {
+    "": [
+      {
+        "model": "examplefabricmod:block/bloody_dirt_block"
+      },
+      {
+        "model": "examplefabricmod:block/bloody_dirt_block",
+        "y": 90
+      },
+      {
+        "model": "examplefabricmod:block/bloody_dirt_block",
+        "y": 180
+      },
+      {
+        "model": "examplefabricmod:block/bloody_dirt_block",
+        "y": 270
+      }
+    ]
+  }
+}
