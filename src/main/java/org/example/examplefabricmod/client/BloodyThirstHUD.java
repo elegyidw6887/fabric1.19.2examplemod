@@ -19,7 +19,6 @@ public class BloodyThirstHUD implements HudRenderCallback {
     public static final Identifier FILLED_BOTTLE = new Identifier(ExampleFabricMod.MOD_ID, "textures/hud/bloody_thirst_filled_bottle.png");
     public static final Identifier EMPTY_BOTTLE = new Identifier(ExampleFabricMod.MOD_ID, "textures/hud/bloody_thirst_empty_bottle.png");
 
-
     @Override
     public void onHudRender(MatrixStack matrixStack, float tickDelta) {
 

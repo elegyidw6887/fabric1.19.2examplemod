@@ -42,6 +42,7 @@ public class BloodyData {
         if (bloodyThirst !=0) {
             bloodyThirst =  0;
             nbtCompound.putInt("bloody_thirst", bloodyThirst);
+            // 发送数据包调用“DrinkingBloodC2SPackets”数据包
             ClientPlayNetworking.send(ModPacketHandler.DRINKING_BLOOD_ID, PacketByteBufs.create());
             syncThirst(bloodyThirst, (ServerPlayerEntity) player);
         } else {

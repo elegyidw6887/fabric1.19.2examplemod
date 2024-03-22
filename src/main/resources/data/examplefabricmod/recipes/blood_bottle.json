@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "BBB",
+    "BDB",
+    "BBB"
+  ],
+  "key": {
+    "B": {
+      "item": "minecraft:glass_bottle"
+    },
+    "D" : {
+      "item": "examplefabricmod:bloody_dirt_block"
+    }
+  },
+  "result": {
+    "item": "examplefabricmod:blood_bottle",
+    "count": 8
+  }
+}

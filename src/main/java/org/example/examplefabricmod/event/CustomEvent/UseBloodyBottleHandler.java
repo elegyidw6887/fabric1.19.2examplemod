@@ -1,6 +1,8 @@
 package org.example.examplefabricmod.event.CustomEvent;
 
 import net.fabricmc.fabric.api.event.player.UseItemCallback;
+import net.minecraft.entity.effect.StatusEffectInstance;
+import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -25,6 +27,8 @@ public class UseBloodyBottleHandler implements UseItemCallback {
                     BloodyData.addBloodyThirst((ModEntityDataSaver) player);
                 }
             }
+        } else {
+            player.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 40, 1));
         }
         return TypedActionResult.pass(ItemStack.EMPTY);
     }
