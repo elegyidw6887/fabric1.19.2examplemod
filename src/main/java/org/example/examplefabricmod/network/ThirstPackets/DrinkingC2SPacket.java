@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.network.packets;
+package org.example.examplefabricmod.network.ThirstPackets;
 
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.block.Blocks;
@@ -23,8 +23,8 @@ public class DrinkingC2SPacket {
         // 获取实体所在的世界
         ServerWorld world = playerEntity.getWorld();
         if (isWaterAroundPlayer(playerEntity, world, 1)) {
-            //
-            playerEntity.sendMessage(Text.translatable("Drinking water").fillStyle(Style.EMPTY), false);
+            // 成功喝水时发送文字提示
+            playerEntity.sendMessage(Text.literal("Drinking water").fillStyle(Style.EMPTY), false);
             // 如果判定到玩家实体范围内存在水则播放声音
             world.playSound(null, playerEntity.getBlockPos(), SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.PLAYERS, 0.5F, world.random.nextFloat());
             // 调用移除口渴值的方法

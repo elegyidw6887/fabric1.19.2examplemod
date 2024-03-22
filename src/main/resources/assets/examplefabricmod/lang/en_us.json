@@ -14,5 +14,6 @@
   "item.examplefabricmod.bar_brawl_music_disc.desc": "Bryan Tech - Bar Brawl(CC0)",
   "item.minecraft.potion.effect.freeze_potion": "Freeze Potion",
   "item.minecraft.splash_potion.effect.freeze_potion": "Splash Potion of Freeze",
-  "item.minecraft.lingering_potion.effect.freeze_potion": "Lingering Potion of Freeze"
+  "item.minecraft.lingering_potion.effect.freeze_potion": "Lingering Potion of Freeze",
+  "item.examplefabricmod.blood_bottle": "Blood Bottle"
 }

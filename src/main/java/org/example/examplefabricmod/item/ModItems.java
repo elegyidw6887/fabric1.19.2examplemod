@@ -82,7 +82,7 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(64)));
     // 血瓶
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle",
-            new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(1)));
+            new HoneyBottleItem(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).food(ModFoods.BLOODY_BOTTLE).maxCount(1)));
     // 血桶物品
     public static final Item BLOOD_BUCKET = registerItem("blood_bucket",
             new BucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1).group(ModItemGroup.LOSTsMOD)));

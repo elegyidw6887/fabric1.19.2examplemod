@@ -25,7 +25,6 @@ import org.example.examplefabricmod.world.feature.ModPlacedFeatures;
 import org.example.examplefabricmod.world.gen.ModWorldGeneration;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import terrablender.api.SurfaceRuleManager;
 
 public class ExampleFabricMod implements ModInitializer {
 

@@ -41,7 +41,8 @@ public class ModOverworldBiomes {
         ModBiomeFeatures.addAmethystOre(biomeBuilder);
         ModBiomeFeatures.addAmethystGeodes(biomeBuilder);
 
-        return biome(Biome.Precipitation.RAIN, 2.0F, 0.0F, 4159204, 329011, spawnBuilder, biomeBuilder, null);
+        return biomeWithGrassColor(Biome.Precipitation.RAIN, 2.0F, 0.0F, 4159204, 329011,
+                878926, spawnBuilder, biomeBuilder, null);
     }
 
     public static Biome BLOODY_CAVES() {
@@ -66,22 +67,13 @@ public class ModOverworldBiomes {
         DefaultBiomeFeatures.addDefaultDisks(biomeBuilder);
         // 添加繁茂洞穴装饰
         DefaultBiomeFeatures.addLushCavesDecoration(biomeBuilder);
-        /*
-        * 包含：
-        * 天花板植被（包含天花板的苔藓块）
-        * 洞穴藤蔓
-        * 洞穴粘土
-        * 洞穴植被（包含地表苔藓块）
-        * 杜鹃花树
-        * 孢子花
-        * 洞穴经典藤蔓
-        * */
 
         ModBiomeFeatures.addAmethystOre(biomeBuilder);
 
         MusicSound musicSound = MusicType.createIngameMusic(SoundEvents.MUSIC_OVERWORLD_LUSH_CAVES);
 
-        return biome(Biome.Precipitation.RAIN, 0.5F, 0.5F,15689728, 15689728, spawnBuilder, biomeBuilder, musicSound);
+        return biomeWithGrassColor(Biome.Precipitation.RAIN, 0.5F, 0.5F,15689728, 15689728,
+                8789267, spawnBuilder, biomeBuilder, musicSound);
     }
 
     // 计算天空颜色
@@ -105,12 +97,33 @@ public class ModOverworldBiomes {
                                 .waterFogColor(waterFogColor)// 水雾颜色
                                 .fogColor(waterFogColor)// 雾颜色
                                 .skyColor(ModOverworldBiomes.calculateSkyColor(temperature))// 天空颜色
-                                .grassColor(8789267)
                                 .moodSound(BiomeMoodSound.CAVE)// 环境音效
                                 .music(music)
                                 .build())
                 .spawnSettings(spawnBuilder.build())// 生物生成设定
                 .generationSettings(biomeBuilder.build())// 生物群系生成设定
+                .build();
+    }
+
+    // 创建特定草方块颜色生物群系
+    private static Biome biomeWithGrassColor(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor,int grassColor,
+                                             SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
+        return (new Biome.Builder())
+                .precipitation(precipitation)
+                .temperature(temperature)
+                .downfall(downfall)
+                .effects(
+                        (new BiomeEffects.Builder())
+                                .waterColor(waterColor)
+                                .waterFogColor(waterFogColor)
+                                .fogColor(waterFogColor)
+                                .skyColor(ModOverworldBiomes.calculateSkyColor(temperature))
+                                .grassColor(8789267)
+                                .moodSound(BiomeMoodSound.CAVE)
+                                .music(music)
+                                .build())
+                .spawnSettings(spawnBuilder.build())
+                .generationSettings(biomeBuilder.build())
                 .build();
     }
 

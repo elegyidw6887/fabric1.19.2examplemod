@@ -15,6 +15,9 @@ public class ModPotions {
     public static Potion FREEZE_POTION = registerPotion("freeze_potion",
             new Potion(new StatusEffectInstance(ModEffects.FREEZE, 200, 0)));
 
+    public  static Potion BLOODY_POTION = registerPotion("bloody_potion",
+            new Potion(new StatusEffectInstance[0]));
+
     private static Potion registerPotion(String name, Potion potion) {
         return Registry.register(Registry.POTION, new Identifier(ExampleFabricMod.MOD_ID, name), potion);
     }

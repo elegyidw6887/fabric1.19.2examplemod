@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.network.packets;
+package org.example.examplefabricmod.network.ThirstPackets;
 
 import net.fabricmc.fabric.api.networking.v1.PacketSender;
 import net.minecraft.client.MinecraftClient;
