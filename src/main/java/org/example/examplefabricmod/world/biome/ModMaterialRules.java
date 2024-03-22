@@ -3,7 +3,9 @@ package org.example.examplefabricmod.world.biome;
 import net.minecraft.block.Block;
 import net.minecraft.block.Blocks;
 import net.minecraft.world.gen.surfacebuilder.MaterialRules;
+import org.example.examplefabricmod.ExampleFabricMod;
 import org.example.examplefabricmod.block.ModBlocks;
+import terrablender.api.SurfaceRuleManager;
 
 public class ModMaterialRules {
     private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(ModBlocks.BLOODY_DIRT_BLOCK);
@@ -25,10 +27,6 @@ public class ModMaterialRules {
         STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH：生物群系天花板与地表深度
          */
         return MaterialRules.sequence(
-                // 血腥之地自定义
-//                MaterialRules.condition(
-//                        MaterialRules.biome(ModBiomes.BLOODY_PLAIN),
-//                        MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR, GRASS_BLOCK)),
                 // 血腥晶洞自定义
                 MaterialRules.condition(
                         MaterialRules.biome(ModBiomes.BLOODY_CAVES),
@@ -44,5 +42,10 @@ public class ModMaterialRules {
     // 制作状态规则
     private static MaterialRules.MaterialRule makeStateRule(Block block) {
         return MaterialRules.block(block.getDefaultState());
+    }
+
+    public static void registerModMaterialRules() {
+        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, ExampleFabricMod.MOD_ID, ModMaterialRules.makeRules());
+        ExampleFabricMod.LOGGER.info("Registering ModMaterialRules for " + ExampleFabricMod.MOD_ID);
     }
 }

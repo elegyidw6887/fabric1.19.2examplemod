@@ -9,7 +9,7 @@ import net.minecraft.client.util.InputUtil;
 import org.example.examplefabricmod.network.ModPacketHandler;
 import org.lwjgl.glfw.GLFW;
 
-public class ModKeyInputHandler {
+public class KeyInputHandler {
 
     public static final String KEY_CATEGORY_EXAMPLE = "key.category.examplefabricmod.example";
     public static final String KEY_DRINK_WATER = "key.examplefabricmod.drink_water";

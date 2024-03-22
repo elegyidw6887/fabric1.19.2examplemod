@@ -66,7 +66,7 @@ public class ExampleFabricMod implements ModInitializer {
         // 模组生物群系注册
         ModBiomes.registerModBiomes();
         // 模组自定义生物群系表面规则
-        SurfaceRuleManager.addSurfaceRules(SurfaceRuleManager.RuleCategory.OVERWORLD, MOD_ID, ModMaterialRules.makeRules());
+        ModMaterialRules.registerModMaterialRules();
         // 模组维度注册
         ModDimensions.registerModDimensions();
         // 模组方块实体注册
