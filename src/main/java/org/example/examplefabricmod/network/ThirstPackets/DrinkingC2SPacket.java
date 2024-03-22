@@ -28,7 +28,7 @@ public class DrinkingC2SPacket {
             // 如果判定到玩家实体范围内存在水则播放声音
             world.playSound(null, playerEntity.getBlockPos(), SoundEvents.ENTITY_GENERIC_DRINK, SoundCategory.PLAYERS, 0.5F, world.random.nextFloat());
             // 调用移除口渴值的方法
-            ThirstData.removeThirst((ModEntityDataSaver) playerEntity, 1);
+            ThirstData.reduceThirst((ModEntityDataSaver) playerEntity, 1);
             // 发送消息提示
             playerEntity.sendMessage(Text.literal(" Thirst Value " + ((ModEntityDataSaver) playerEntity).getPersistentData().getInt("thirst"))
                     .fillStyle(Style.EMPTY.withColor(Formatting.AQUA)), true);

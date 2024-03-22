@@ -24,7 +24,7 @@ public class BloodyData {
         return bloodyThirst;
     }
 
-    public static int removeBloodyThirst(ModEntityDataSaver player) {
+    public static void reduceBloodyThirst(ModEntityDataSaver player) {
         NbtCompound nbtCompound = player.getPersistentData();
         int bloodyThirst = nbtCompound.getInt("bloody_thirst");
         if (bloodyThirst  > 0) {
@@ -34,7 +34,6 @@ public class BloodyData {
         }
         nbtCompound.putInt("bloody_thirst", bloodyThirst);
         syncThirst(bloodyThirst, (ServerPlayerEntity) player);
-        return bloodyThirst;
     }
 
     public static void emptyBloodyThirst(ModEntityDataSaver player) {

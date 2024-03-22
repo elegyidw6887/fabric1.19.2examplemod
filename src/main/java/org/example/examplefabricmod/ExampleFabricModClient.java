@@ -8,6 +8,7 @@ import net.fabricmc.fabric.api.client.rendering.v1.HudRenderCallback;
 import net.fabricmc.fabric.api.client.screenhandler.v1.ScreenRegistry;
 import net.minecraft.client.render.RenderLayer;
 import org.example.examplefabricmod.block.ModBlocks;
+import org.example.examplefabricmod.client.BloodyThirstHUD;
 import org.example.examplefabricmod.client.ThirstHUD;
 import org.example.examplefabricmod.event.ModEventsHandler;
 import org.example.examplefabricmod.fluid.ModFluids;
@@ -27,6 +28,8 @@ public class ExampleFabricModClient implements ClientModInitializer {
         ModPacketHandler.registerS2CPackets();
         // 口渴值HUD注册
         HudRenderCallback.EVENT.register(new ThirstHUD());
+        // 渴血值HUD注册
+        HudRenderCallback.EVENT.register(new BloodyThirstHUD());
 
         // 葡萄作物方块渲染
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.GRAPE_VINE, RenderLayer.getCutout());

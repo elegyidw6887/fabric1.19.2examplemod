@@ -11,7 +11,7 @@ import org.example.examplefabricmod.util.ModEntityDataSaver;
 public class ThirstData {
 
     // 减少口渴值
-    public static int addThirst(ModEntityDataSaver player, int amount) {
+    public static void addThirst(ModEntityDataSaver player, int amount) {
         NbtCompound nbtCompound = player.getPersistentData();
         // 调用.getInt方法并传入关键词参数，该方法在调用后如果未找到对应关键词则会默认返回0
         int thirst = nbtCompound.getInt("thirst");
@@ -24,11 +24,10 @@ public class ThirstData {
         nbtCompound.putInt("thirst", thirst);
         // 口渴值修改时时同步数据
         syncThirst(thirst, (ServerPlayerEntity) player);
-        return thirst;
     }
 
     // 增加口渴值
-    public static int removeThirst(ModEntityDataSaver player, int amount) {
+    public static void reduceThirst(ModEntityDataSaver player, int amount) {
         NbtCompound nbtCompound = player.getPersistentData();
         int thirst = nbtCompound.getInt("thirst");
         if (thirst - amount > 0) {
@@ -39,7 +38,6 @@ public class ThirstData {
         nbtCompound.putInt("thirst", thirst);
         // 口渴值修改时时同步数据
         syncThirst(thirst, (ServerPlayerEntity) player);
-        return thirst;
     }
 
     // 同步口渴值

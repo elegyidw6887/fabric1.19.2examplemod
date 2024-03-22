@@ -8,6 +8,7 @@ import net.minecraft.entity.effect.StatusEffects;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import org.example.examplefabricmod.effect.ModEffects;
 import org.example.examplefabricmod.util.CustomData.BloodyData;
 import org.example.examplefabricmod.util.CustomData.ThirstData;
 import org.example.examplefabricmod.util.ModArmorMaterials;
@@ -24,7 +25,11 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
     public void onStartTick(MinecraftServer server) {
         // 从服务器全部玩家列表中遍历得到目标玩家
         for (ServerPlayerEntity playerEntity : server.getPlayerManager().getPlayerList()) {
+
             MinecraftClient client = MinecraftClient.getInstance();
+
+            int bloodyValue = ((ModEntityDataSaver) playerEntity).getPersistentData().getInt("bloody_thirst");
+
             // 判断是否为生存模式
             if (new TutorialManager(client, null).isInSurvival()) {
                 // 随机增加玩家的口渴值
@@ -43,16 +48,27 @@ public class PlayerTickHandler implements ServerTickEvents.StartTick {
 
             // 渴血值系统
             bloodyTick++;
-            if (((ModEntityDataSaver) playerEntity).getPersistentData().getInt("bloody_thirst") > 8){
+            if (bloodyValue > 8){
                 if (bloodyTick > 600) {
-                    BloodyData.removeBloodyThirst((ModEntityDataSaver) playerEntity);
+                    BloodyData.reduceBloodyThirst((ModEntityDataSaver) playerEntity);
                     bloodyTick =0;
                 }
             } else {
                 if (bloodyTick > 1200) {
-                    BloodyData.removeBloodyThirst((ModEntityDataSaver) playerEntity);
+                    BloodyData.reduceBloodyThirst((ModEntityDataSaver) playerEntity);
                     bloodyTick = 0;
                 }
+            }
+            if (bloodyValue > 8) {
+                playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 5));
+            } else if (bloodyValue > 6) {
+                playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 4));
+            } else if (bloodyValue > 4) {
+                playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 3));
+            } else if (bloodyValue >2) {
+                playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 2));
+            } else if (bloodyValue > 0) {
+                playerEntity.addStatusEffect(new StatusEffectInstance(ModEffects.BLOOD_THIRST, 40, 1));
             }
         }
     }

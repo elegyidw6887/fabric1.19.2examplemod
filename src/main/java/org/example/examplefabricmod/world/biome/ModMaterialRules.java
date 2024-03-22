@@ -8,7 +8,7 @@ import org.example.examplefabricmod.block.ModBlocks;
 import terrablender.api.SurfaceRuleManager;
 
 public class ModMaterialRules {
-    private static final MaterialRules.MaterialRule GRASS_BLOCK = makeStateRule(ModBlocks.BLOODY_DIRT_BLOCK);
+    private static final MaterialRules.MaterialRule DIRT_BLOCK = makeStateRule(ModBlocks.BLOODY_DIRT_BLOCK);
      private static final MaterialRules.MaterialRule DIRT = makeStateRule(ModBlocks.BLOODY_CRYSTAL_ORE);
     private static final MaterialRules.MaterialRule RED_TERRACOTTA = makeStateRule(Blocks.RED_TERRACOTTA);
     private static final MaterialRules.MaterialRule BLUE_TERRACOTTA = makeStateRule(Blocks.BLUE_TERRACOTTA);
@@ -27,6 +27,9 @@ public class ModMaterialRules {
         STONE_DEPTH_CEILING_WITH_SURFACE_DEPTH：生物群系天花板与地表深度
          */
         return MaterialRules.sequence(
+                MaterialRules.condition(
+                        MaterialRules.biome(ModBiomes.BLOODY_PLAIN),
+                        MaterialRules.condition(MaterialRules.STONE_DEPTH_FLOOR_WITH_SURFACE_DEPTH, DIRT_BLOCK)),
                 // 血腥晶洞自定义
                 MaterialRules.condition(
                         MaterialRules.biome(ModBiomes.BLOODY_CAVES),
