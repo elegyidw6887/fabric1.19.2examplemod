@@ -7,7 +7,6 @@ import net.minecraft.client.gui.DrawableHelper;
 import net.minecraft.client.render.GameRenderer;
 import net.minecraft.client.tutorial.TutorialManager;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.example.examplefabricmod.ExampleFabricMod;
 import org.example.examplefabricmod.util.ModArmorMaterials;

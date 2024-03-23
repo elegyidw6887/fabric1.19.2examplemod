@@ -28,7 +28,10 @@ public class UseBloodyBottleHandler implements UseItemCallback {
                 }
             }
         } else {
-            player.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 40, 1));
+            ItemStack heldItem = player.getStackInHand(hand);
+            if (heldItem.getItem() == ModItems.BLOOD_BOTTLE) {
+                player.addStatusEffect(new StatusEffectInstance(StatusEffects.NAUSEA, 100, 1));
+            }
         }
         return TypedActionResult.pass(ItemStack.EMPTY);
     }

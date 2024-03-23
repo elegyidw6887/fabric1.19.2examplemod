@@ -15,6 +15,7 @@ import org.example.examplefabricmod.item.CustomItem.EightBallItem;
 import org.example.examplefabricmod.sound.ModSounds;
 import org.example.examplefabricmod.util.ModArmorMaterials;
 import org.example.examplefabricmod.util.ModItemGroup;
+import org.example.examplefabricmod.util.ModNBTWriter;
 import org.example.examplefabricmod.util.ModToolMaterials;
 import org.example.examplefabricmod.util.PublicConstructor.ModAxeItem;
 import org.example.examplefabricmod.util.PublicConstructor.ModHoeItem;
@@ -86,7 +87,18 @@ public class ModItems {
     // 血桶物品
     public static final Item BLOOD_BUCKET = registerItem("blood_bucket",
             new BucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1).group(ModItemGroup.LOSTsMOD)));
+    public static final Item BLOODY_JEWEL = registerItem("bloody_jewel",
+            new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(1)) {
+                public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
+                    tooltip.add(Text.literal("item.examplefabricmod.bloody_jewel"));
+                }
+            });
 
+    // 为物品写入NBT数据
+    ModNBTWriter modItemNBTWriter;
+    {
+        modItemNBTWriter.writeItemNBT(BLOODY_JEWEL, "bloody_thirst", "nbt.examplefabricmod.bloody_thirst");
+    }
 
     private static Item registerItem(String name, Item item) { // 注册物品
         return Registry.register(Registry.ITEM, new Identifier(ExampleFabricMod.MOD_ID, name), item);
