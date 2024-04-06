@@ -11,6 +11,7 @@ import net.minecraft.world.World;
 import org.example.examplefabricmod.ExampleFabricMod;
 import org.example.examplefabricmod.block.ModBlocks;
 import org.example.examplefabricmod.fluid.ModFluids;
+import org.example.examplefabricmod.item.CustomItem.BloodBottleItem;
 import org.example.examplefabricmod.item.CustomItem.EightBallItem;
 import org.example.examplefabricmod.sound.ModSounds;
 import org.example.examplefabricmod.util.ModArmorMaterials;
@@ -83,14 +84,14 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(64)));
     // 血瓶
     public static final Item BLOOD_BOTTLE = registerItem("blood_bottle",
-            new HoneyBottleItem(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).food(ModFoods.BLOODY_BOTTLE).maxCount(1)));
+            new BloodBottleItem(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).food(ModFoods.BLOODY_BOTTLE).maxCount(16)));
     // 血桶物品
     public static final Item BLOOD_BUCKET = registerItem("blood_bucket",
             new BucketItem(ModFluids.STILL_BLOOD, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1).group(ModItemGroup.LOSTsMOD)));
     public static final Item BLOODY_JEWEL = registerItem("bloody_jewel",
             new Item(new FabricItemSettings().group(ModItemGroup.THE_LOST_LAND).maxCount(1)) {
                 public void appendTooltip(ItemStack itemStack, World world, List<Text> tooltip, TooltipContext tooltipContext) {
-                    tooltip.add(Text.literal("item.examplefabricmod.bloody_jewel"));
+                    tooltip.add(Text.literal("item.examplefabricmod.bloody_jewel.tooltip"));
                 }
             });
 

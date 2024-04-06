@@ -85,7 +85,7 @@ public class ModBlocks {
     public static final Block BLOODY_DIRT_BLOCK = registerBlock("bloody_dirt_block",
             new GrassBlock(FabricBlockSettings.of(Material.SOLID_ORGANIC).ticksRandomly().strength(0.6f).sounds(BlockSoundGroup.GRASS)) , ModItemGroup.THE_LOST_LAND);
     // 血流体方块
-    public static final Block BLOOD = registerBlockWithoutBlockItem("blood_block",
+    public static final Block BLOOD = registerBlockWithoutBlockItem("blood",
             new ModFluidBlock(ModFluids.STILL_BLOOD, FabricBlockSettings.of(Material.WATER).noCollision().nonOpaque().dropsNothing()));
     // 注入工作台方块
     public static final Block INJECTION_BENCH_BLOCK = registerBlock("injection_bench_block",

@@ -1,4 +1,4 @@
-package org.example.examplefabricmod.util;
+package org.example.examplefabricmod.tag;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -12,6 +12,7 @@ public class ModTags {
     public static class Items {
 
         public static final TagKey<Item> AMETHYST = createCommonTag("amethyst");
+        public static final TagKey<Item> BLOODY_JEWEL = createTag("relics");
 
         private static TagKey<Item> createTag(String name) { // 一个存放于resources/data/MOD_ID/tags文件夹中的标签
             return TagKey.of(Registry.ITEM_KEY, new Identifier(ExampleFabricMod.MOD_ID, name));

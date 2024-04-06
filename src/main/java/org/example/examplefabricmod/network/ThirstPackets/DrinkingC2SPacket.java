@@ -48,7 +48,7 @@ public class DrinkingC2SPacket {
         return BlockPos
                 // .getVisibilityBoundingBox()获取可见的边间框并进行扩张，扩张大小为传入的参数
                 .stream(playerEntity.getVisibilityBoundingBox().expand(size))
-                // 获得周遭方块的转改
+                // 获得周遭方块的状态
                 .map(world::getBlockState)
                 // 调用滤波器对水方块进行检索
                 .filter(blockState -> blockState.isOf(Blocks.WATER))
