@@ -7,7 +7,7 @@ import net.minecraft.nbt.NbtCompound;
 
 public class ModNBTWriter {
 
-    public void writeItemNBT(Item item, String nbtKey, String string) {
+    public static void writeItemNBT(Item item, String nbtKey, String string) {
         // 获取物品堆
         ItemStack itemStack = item.getDefaultStack();
         // 获取物品堆的NBT数据

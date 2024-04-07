@@ -96,9 +96,8 @@ public class ModItems {
             });
 
     // 为物品写入NBT数据
-    ModNBTWriter modItemNBTWriter;
-    {
-        modItemNBTWriter.writeItemNBT(BLOODY_JEWEL, "bloody_thirst", "nbt.examplefabricmod.bloody_thirst");
+    static {
+        ModNBTWriter.writeItemNBT(BLOODY_JEWEL, "bloody_thirst", "nbt.examplefabricmod.bloody_thirst");
     }
 
     private static Item registerItem(String name, Item item) { // 注册物品
