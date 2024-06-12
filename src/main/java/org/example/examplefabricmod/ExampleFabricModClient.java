@@ -17,6 +17,7 @@ import org.example.examplefabricmod.screen.InjectionBenchBlock.InjectionBenchBlo
 import org.example.examplefabricmod.screen.ModScreenHandlers;
 import org.example.examplefabricmod.util.ModModelPredicateProvider;
 
+@SuppressWarnings("deprecation")
 public class ExampleFabricModClient implements ClientModInitializer {
 
     @Override

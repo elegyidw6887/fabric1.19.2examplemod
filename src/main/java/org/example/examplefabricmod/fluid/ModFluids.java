@@ -1,9 +1,6 @@
 package org.example.examplefabricmod.fluid;
 
 import net.minecraft.fluid.FlowableFluid;
-import net.minecraft.fluid.Fluid;
-import net.minecraft.tag.FluidTags;
-import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.example.examplefabricmod.ExampleFabricMod;
