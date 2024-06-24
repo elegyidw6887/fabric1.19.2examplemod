@@ -7,6 +7,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.example.examplefabricmod.ExampleFabricMod;
 
+@SuppressWarnings("unused")
 public class ModTags {
 
     public static class Items {

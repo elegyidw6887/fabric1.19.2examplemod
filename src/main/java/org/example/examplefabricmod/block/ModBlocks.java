@@ -26,6 +26,7 @@ import org.example.examplefabricmod.world.feature.Tree.JacarandaSaplingGenerator
 
 import java.util.List;
 
+@SuppressWarnings("unused")
 public class ModBlocks {
 
     // 紫水晶块与矿石

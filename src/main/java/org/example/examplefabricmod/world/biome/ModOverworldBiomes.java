@@ -85,6 +85,7 @@ public class ModOverworldBiomes {
     }
 
     // 生物群系创建方法
+    @SuppressWarnings("unused")
     private static Biome biome(Biome.Precipitation precipitation, float temperature, float downfall, int waterColor, int waterFogColor,
                                SpawnSettings.Builder spawnBuilder, GenerationSettings.Builder biomeBuilder, @Nullable MusicSound music) {
         return (new Biome.Builder())

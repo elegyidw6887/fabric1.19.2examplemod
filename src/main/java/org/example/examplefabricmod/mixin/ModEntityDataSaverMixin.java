@@ -25,7 +25,7 @@ public abstract class ModEntityDataSaverMixin implements ModEntityDataSaver {
     }
 
     @Inject(method = "writeNbt", at = @At("HEAD"))
-    protected void injectWriteMethod(NbtCompound nbt, CallbackInfoReturnable info) {
+    protected void injectWriteMethod(NbtCompound nbt, @SuppressWarnings("rawtypes") CallbackInfoReturnable info) {
         if (this.persistentData != null) {
             nbt.put("examplefabricmod.data", persistentData);
         }

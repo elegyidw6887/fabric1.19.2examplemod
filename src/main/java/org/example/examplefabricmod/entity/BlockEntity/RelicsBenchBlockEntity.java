@@ -66,6 +66,7 @@ public class RelicsBenchBlockEntity extends BlockEntity implements NamedScreenHa
         craftItem(entity);
     }
 
+    @SuppressWarnings("unused")
     private static boolean hasRecipe(RelicsBenchBlockEntity entity) {
         World world = entity.world;
         SimpleInventory inventory = new SimpleInventory(entity.inventory.size());
